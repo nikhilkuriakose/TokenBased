@@ -65,7 +65,7 @@ namespace TokenBased
                     pattern: "{controller=Home}/{action=DemoMenu}/{id?}");
             });
 
-            loggerFactory.AddFile("Logs/mylog-{Date}.txt");
+            loggerFactory.AddFile("Logs/DemoLog-{Date}.txt");
 
         }
     }
