@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model TokenBased.ViewModel.LoginVM
+
+@{
+    Layout = "~/Pages/Shared/_LayoutCustom.cshtml";
+    ViewData["Title"] = "Login";
+}
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3 col-sm-12">
+        <div class="card login-logout-tab">
+            <div class="card-header">
+                <div class="text-center">
+                    <h3 class="card-title">Login</h3>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="col-md-12">
+
+                    <div class="col-md-10 offset-1">
+                        <div class="login-form-icon">
+                            <i class="fas fa-user-circle fa-9x text-secondary"></i>
+                        </div>
+                        <form asp-controller="Account" asp-action="Login" method="post">
+                            <div asp-validation-summary="All" class="text-danger alert-danger"></div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                    <input asp-for="UserName" class="form-control" placeholder="User Name" />
+                                </div>
+                                @*<span asp-validation-for="UserName" class="text-danger"></span>*@
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-lock"></i>
+                                        </div>
+                                    </div>
+                                    <input asp-for="Password" class="form-control" placeholder="Password" type="password" />
+                                </div>
+                                @*<span asp-validation-for="Password" class="text-danger"></span>*@
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </div>
+                            <div>
+                                @Html.HiddenFor(x => x.ReturnURL)
+                                @Html.HiddenFor(x => x.UserId)
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
